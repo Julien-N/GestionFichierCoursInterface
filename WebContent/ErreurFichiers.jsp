@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Erreur d'authentification</title>
+<title>Récupération de Fichiers</title>
 </head>
 <body>
-Échec de l'authentification. Veuillez réessayer.
 
-<a href="./index.html">Revenir à la page d'authentification</a>
+Nous n'avons pas trouvé de fichiers dans la base de données. 
+
 
 </body>
 </html>

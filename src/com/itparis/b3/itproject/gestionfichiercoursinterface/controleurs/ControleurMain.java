@@ -106,7 +106,7 @@ public class ControleurMain extends HttpServlet {
 			forward = "ListeFichier.jsp";
 		}
 		else{
-			forward = "Erreur.jsp";
+			forward = "ErreurFichiers.jsp";
 		}
 		
 		return forward;
@@ -132,8 +132,10 @@ public class ControleurMain extends HttpServlet {
 			HttpSession session = request.getSession();
 			if (User.isAdmin()) {
 				session.setAttribute("role", "admin");
-			} else {
-				session.setAttribute("role", "user");
+			} else if(User.isProf()){
+				session.setAttribute("role", "prof");
+			}else{
+				session.setAttribute("role", "eleve");
 			}
 		} else {
 			//a changer selon votre plan d'application ou CDC
