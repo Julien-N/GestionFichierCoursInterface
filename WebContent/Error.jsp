@@ -8,5 +8,8 @@
 </head>
 <body>
 Echec de l'authentification. Veuillez réessayer.
+
+<a href="./index.html">Revenir à la page d'authentification</a>
+
 </body>
 </html>

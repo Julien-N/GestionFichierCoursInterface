@@ -22,7 +22,7 @@ import com.itparis.b3.poo.dao.UserDAO;
  */
 @WebServlet("/ControleurMain")
 public class ControleurMain extends HttpServlet {
-	private static final long serialVersionUID = 1876238L;
+	private static final long serialVersionUID = 1L;
 //	private static ResourceBundle resource = ResourceBundle.getBundle("appli");
 
 	/**
@@ -120,7 +120,7 @@ public class ControleurMain extends HttpServlet {
 		System.out.println(login);
 		System.out.println(pass);
 		//User user = myUserDAO.getUserById(105);
-		UserDAO.getUserByNameAndPassword(login, pass);
+		new User(UserDAO.getUserByNameAndPassword(login, pass));
 		System.out.println("");
 		System.out.println(User.getIdUser());
 		System.out.println(User.getNomUser());
