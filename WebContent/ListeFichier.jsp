@@ -5,12 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Erreur d'authentification</title>
+<title>Liste des fichiers</title>
 </head>
 <body>
-Échec de l'authentification. Veuillez réessayer.
-
-<a href="./index.html">Revenir à la page d'authentification</a>
 
 </body>
 </html>
