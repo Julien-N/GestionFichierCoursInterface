@@ -2,6 +2,7 @@ package com.itparis.b3.itproject.gestionfichiercoursinterface.controleurs;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -54,17 +55,17 @@ public class ControleurMain extends HttpServlet {
 		// initialisation des attributs
 		request.setAttribute("url", null);
 		response.setContentType("text/html;charset=UTF-8");
-		// récupération d'un descripteur d'écriture de flux
+		// ré–upé–žation d'un descripteur d'é–riture de flux
 		PrintWriter out = response.getWriter();
 
 		try {
-			// initialisation de ma page suivante - par rapport à l'action en
+			// initialisation de ma page suivante - par rapport ï¿½ l'action en
 			// cours
 			String forward = "Accueil.jsp";
-			// récupération de la source de la demande de requete
+			// ré–upé–žation de la source de la demande de requete
 			String idaction = request.getParameter("action");
 
-			// traitement de la requête selon la source
+			// traitement de la requé˜¾e selon la source
 			if (idaction.equals("auth")) {
 				forward = authentifier(request);
 			} else if (idaction.equals("allfiles")) {
@@ -73,11 +74,13 @@ public class ControleurMain extends HttpServlet {
 				forward = addfile(request);
 			}else if (idaction.equals("detailcours")) {
 				forward = detailscours(request);
+			}else if (idaction.equals("adduser")){
+				forward = adduser(request);
 			}
 			// etc .......
 
-			// à la fin du traitement après if else ... etc ... je dispatche
-			// vers la page de réponse
+			// ï¿½ la fin du traitement apré‘£ if else ... etc ... je dispatche
+			// vers la page de ré–œonse
 			RequestDispatcher dispatcher = request
 					.getRequestDispatcher(forward);
 			dispatcher.forward(request, response);
@@ -87,10 +90,25 @@ public class ControleurMain extends HttpServlet {
 		}
 	}
 
+	private String adduser(HttpServletRequest request) {
+		String forward;
+		String name = request.getParameter("name");
+		String pass = request.getParameter("pass");
+		String type = request.getParameter("typeuser");
+		try {
+			User usertemp = new User(UserDAO.addUser(name, pass, type));
+			forward = "passer.jsp";
+			System.out.println(usertemp.getNomUser());
+		} catch (SQLException e) {
+			forward = "Error.jsp";
+		}
+		return forward;
+	}
+
 	private String detailscours(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		//ajouter des paramètres 
-		//oubien ajoiuter un objet cours -> le forward sera à la page.jsp
+		//ajouter des paramé‘¤res 
+		//oubien ajoiuter un objet cours -> le forward sera ï¿½ la page.jsp
 		return null;
 	}
 

@@ -12,7 +12,7 @@
 <h1>Bienvenue <%= User.getNomUser() %></h1>
 
 
-<% if (User.getTypeUser().equals("eleve")){  %>
+<% if (User.getTypeUser().equals("user")){  %>
       <p>Vous êtes élève</p>
       
       
@@ -21,7 +21,71 @@
       
       
 <% } else if (User.getTypeUser().equals("admin")) { %>
-      <p>Vous êtes admin, si si</p>
+      <p>Vous êtes admin</p><br>
+      <p>Gestion des utilisateurs</p><br>
+      <hr>
+      <h4>Ajouter un utilisateur</h4><br>
+      <form  name="id" class="form" action="ControleurMain?action=adduser" method="POST" >
+            <table>
+                   <input type="hidden" name="iduser" value = null id="id" />
+                    <tr>
+                        <td width="120px">name : </td>
+                        <td><input type="text" name="name" id="login" /></td>
+                    </tr>
+
+                    <tr>
+                        <td width="120px"> Mot de passe : </td>
+                        <td><input type="text" name="pass" value="" id="pass"/></td>
+                    </tr>
+                    <tr>
+                        <td width="120px"> Type : </td>
+                        <td><select name = "typeuser">
+                        <option value = "admin">admin
+                        <option value = "prof" >prof
+                        <option value = "user">élève
+                        </select></td>
+                    </tr>
+                    
+                    <tr>
+                        <td width="120px" ><input type="submit" value="Valider" class="submit"/></td>
+                        <td width="120px" ><input type="reset" value="Annuler" class="submit" /></td>
+                    </tr>
+            </table>
+        </form>
+       
+        <hr>
+      <h4>Modifier un utilisateur</h4><br>
+      <form  name="id" class="form" action="ControleurMain?action=UpdateUser" method="POST" >
+            <table>
+                     <tr>
+                        <td width="120px">name : </td>
+                       <input type="number" name="iduser" value = null id="id" />
+                    </tr>
+                   
+                    <tr>
+                        <td width="120px">name : </td>
+                        <td><input type="text" name="name" id="login" /></td>
+                    </tr>
+
+                    <tr>
+                        <td width="120px"> Mot de passe : </td>
+                        <td><input type="text" name="pass" value="" id="pass"/></td>
+                    </tr>
+                    <tr>
+                        <td width="120px"> Type : </td>
+                        <td><select name = "typeuser">
+                        <option value = "admin">admin
+                        <option value = "prof" >prof
+                        <option value = "user">élève
+                        </select></td>
+                    </tr>
+                    
+                    <tr>
+                        <td width="120px" ><input type="submit" value="Valider" class="submit"/></td>
+                        <td width="120px" ><input type="reset" value="Annuler" class="submit" /></td>
+                    </tr>
+            </table>
+        </form>
       
       
       

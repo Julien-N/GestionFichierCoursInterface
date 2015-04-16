@@ -2,7 +2,7 @@
     <wb-module deploy-name="GestionFichierCoursInterface">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src2"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src3"/>
         <property name="context-root" value="GestionFichierCoursInterface"/>
         <property name="java-output-path" value="/GestionFichierCoursInterface/build/classes"/>
     </wb-module>
