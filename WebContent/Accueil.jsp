@@ -11,9 +11,6 @@
 </head>
 <body>
 <h1>Bienvenue <%= User.getNomUser() %></h1>
-
-<<<<<<< HEAD
-
 <% if (User.getTypeUser().equals("user")){  %>
       <p>Vous êtes élève</p>
       
@@ -60,8 +57,8 @@
       <form  name="id" class="form" action="ControleurMain?action=updateUser" method="POST" >
             <table>
                      <tr>
-                        <td width="120px">name : </td>
-                       <input type="number" name="iduser" value = null id="id" />
+                        <td width="120px">ID: </td>
+                       <input type="text" name="iduser"  id="iduser" />
                     </tr>
                    
                     <tr>
@@ -90,19 +87,44 @@
         </form>
       
       
+       <hr>
+      <h4>Supprimer un utilisateur</h4><br>
+      <form  name="id" class="form" action="ControleurMain?action=supprimerUser" method="POST" >
+            <table>
+                     <tr>
+                        <td width="120px">ID: </td>
+                       <input type="text" name="iduser"  id="iduser" />
+                    </tr>
+                   
+                    <tr>
+                        <td width="120px">name : </td>
+                        <td><input type="text" name="name" id="login" /></td>
+                    </tr>
+
+                    <tr>
+                        <td width="120px" ><input type="submit" value="Valider" 
+                        onclick='return confirm("Vous confirmez de supprimer?")' class="submit"/></td>
+                        <td width="120px" ><input type="reset" value="Annuler" class="submit" /></td>
+                    </tr>
+            </table>
+        </form>
       
       
       
 =======
+
 <% if (session.getAttribute("role").equals("eleve")){  %>
       <p>Vous êtes élève WESH</p>
 >>>>>>> origin/master
       
 <% } else if (session.getAttribute("role").equals("admin")) { %>
       <p>Vous êtes admin, cher monsieur ou chère madame</p>
-<% } else if (session.getAttribute("role").equals("prof")) { %>
-	  <p>Yo le prof!</p>
-<% } %>
+<% } else if (session.getAttribute("role").equals("prof")) {  %>
+ <p>Yo le prof!</p>
+	 <%}
+} %>
+
+
 
 
 <form action="ControleurMain?action=allfiles" method ="POST">

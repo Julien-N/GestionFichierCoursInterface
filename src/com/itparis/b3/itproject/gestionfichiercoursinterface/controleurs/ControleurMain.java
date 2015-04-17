@@ -76,6 +76,11 @@ public class ControleurMain extends HttpServlet {
 				forward = detailscours(request);
 			}else if (idaction.equals("adduser")){
 				forward = adduser(request);
+			}else if (idaction.equals("updateUser")){
+				forward = updateUser(request);
+			}
+			else if (idaction.equals("supprimerUser")){
+				forward = supprimerUser(request);
 			}
 			// etc .......
 
@@ -90,18 +95,59 @@ public class ControleurMain extends HttpServlet {
 		}
 	}
 
+	private String supprimerUser(HttpServletRequest request) {
+		String forward;
+		String iduser = request.getParameter("iduser");
+		int id = Integer.parseInt(iduser);
+		String name = request.getParameter("name");
+		try{
+			UserDAO.deleteUserById(id,name);
+			forward = "passer.jsp";
+		}  catch (Exception e) {
+			// TODO Auto-generated catch block
+			forward = "Error.jsp";
+		}
+		return forward;
+	}
+
+	private String updateUser(HttpServletRequest request) {
+		String forward;
+		String iduser = request.getParameter("iduser");
+		int id = Integer.parseInt(iduser);
+		String name = request.getParameter("name");
+		String pass = request.getParameter("pass");
+		String type = request.getParameter("typeuser");
+		
+		try{
+			User usertemp = new User(UserDAO.updateUser(id, name, pass,type));
+			System.out.println(usertemp.getNomUser());
+			forward = "passer.jsp";
+		}  catch (Exception e) {
+			// TODO Auto-generated catch block
+			forward = "Error.jsp";
+		}
+		
+		
+	
+		return forward;
+		
+	}
+
 	private String adduser(HttpServletRequest request) {
 		String forward;
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String type = request.getParameter("typeuser");
+		User usertemp;
 		try {
-			User usertemp = new User(UserDAO.addUser(name, pass, type));
+			usertemp = new User(UserDAO.addUser(name, pass, type));
 			forward = "passer.jsp";
 			System.out.println(usertemp.getNomUser());
-		} catch (SQLException e) {
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
 			forward = "Error.jsp";
 		}
+		
 		return forward;
 	}
 

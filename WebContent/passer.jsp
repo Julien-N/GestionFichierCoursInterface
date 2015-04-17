@@ -10,7 +10,7 @@
    response.setHeader("Refresh", "5;URL=Accueil.jsp");
 %>
 <body>  
-  Action succèss, vous allez revenir à l'accueil dans <span id=jump>5</span> secondes
+  Action success, vous allez revenir dans <span id=jump >5</span> secondes
   <script>
        function mskip(abc){
            jump.innerText=abc;
